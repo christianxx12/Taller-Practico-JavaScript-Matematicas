@@ -38,6 +38,34 @@ function calcularTriangulo(lado1, lado2, base, altura) {
   };
 }
 
+// Calcular la altura de un triangulo isósceles
+function calcularAlturaTriangulo(lados, base) {
+  if (lados == base) {
+    console.warn('Este no es un triangulo isósceles');
+  } else {
+    // h = raizcuadrada(a**2 - (b**2)/4)
+    return Math.sqrt(lados ** 2 - base ** 2 / 4);
+  }
+}
+
+// Calcular la altura de un triangulo escaleno
+function calcularAlturaEscaleno(lado1, lado2, lado3) {
+  if (lado1 == lado2 && lado1 == lado3) {
+    console.warn('Este no es un triangulo escaleno');
+  } else {
+    let semiperimetro = (lado1 + lado2 + lado3) / 2;
+    return (
+      (2 / lado1) *
+      Math.sqrt(
+        semiperimetro *
+          (semiperimetro - lado1) *
+          (semiperimetro - lado2) *
+          (semiperimetro - lado3)
+      )
+    );
+  }
+}
+
 console.log({
   ladoTriangulo1,
   ladoTriangulo2,
